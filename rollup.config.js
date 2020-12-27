@@ -53,7 +53,7 @@ export default [
   },
   // For NPM
   {
-    input: "src/minimal-accordion.ts",
+    input: "src/minimal-collapse.ts",
     output: [
       {
         file: pkg.module,

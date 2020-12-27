@@ -1,28 +1,28 @@
 /**
- * Minimal Accordion Class
+ * Minimal Collapse Class
  */
-export class MinimalAccordion {
+export class MinimalCollapse {
   // ===================
   //  Static
   // ===================
   /**
-   * Active Minimal Accordion
+   * Active Minimal Collapse
    */
   public static activate(): void;
   /**
-   * Deactive Minimal Accordion
+   * Deactive Minimal Collapse
    */
   public static deactivate(): void;
   /**
-   * Open Accordion
+   * Open Collapse
    */
   public static open(accordionElement: HTMLElement): void;
   /**
-   * Close Accordion
+   * Close Collapse
    */
   public static close(accordionElement: HTMLElement): void;
   /**
-   * Toggle Accordion
+   * Toggle Collapse
    */
   public static toggle(accordionElement: HTMLElement): void;
 }

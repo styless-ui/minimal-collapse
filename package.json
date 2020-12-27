@@ -1,11 +1,11 @@
 {
-  "name": "@ohnaka0410/minimal-accordion",
+  "name": "@ohnaka0410/minimal-collapse",
   "version": "0.0.1",
-  "description": "Minimal and Tiny Javascript Library for Accordion",
+  "description": "Minimal and Tiny Javascript Library for Collapse",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "module": "dist/index.esm.js",
-  "browser": "dist/minimal-accordion.js",
+  "browser": "dist/minimal-collapse.js",
   "files": [
     "package.json",
     "README.md",
@@ -15,7 +15,8 @@
   ],
   "keywords": [
     "front-end",
-    "accordion",
+    "collapse",
+    "collapse",
     "vanillajs",
     "typescript"
   ],
@@ -34,12 +35,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://ohnaka0410@github.com/ohnaka0410/minimal-accordion.git"
+    "url": "git+https://ohnaka0410@github.com/ohnaka0410/minimal-collapse.git"
   },
   "bugs": {
-    "url": "https://github.com/ohnaka0410/minimal-accordion/issues"
+    "url": "https://github.com/ohnaka0410/minimal-collapse/issues"
   },
-  "homepage": "https://github.com/ohnaka0410/minimal-accordion#readme",
+  "homepage": "https://github.com/ohnaka0410/minimal-collapse#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
