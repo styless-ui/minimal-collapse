@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>minimal-accordion demo (manual))</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles/style.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-accordion/dist/minimal-accordion.min.js"></script>
+</head>
+<body>
+  <section>
+    <button class="button js-open-accordion-trigger">
+      open
+    </button>
+    <button class="button js-close-accordion-trigger">
+      close
+    </button>
+    <button class="button js-toggle-accordion-trigger">
+      toggle
+    </button>
+    <div class="accordion" id="accordion-1" area-hidden="true">
+      <div class="accordion__inner">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum rerum.
+        </p>
+      </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    document.querySelectorAll(".js-open-accordion-trigger").forEach(function (element) {
+      element.addEventListener("click", function(event) {
+        console.log(event);
+        const accordion = document.querySelector("#accordion-1");
+        MinimalAccordion.open(accordion);
+      });
+    });
+
+    document.querySelectorAll(".js-close-accordion-trigger").forEach(function (element) {
+      element.addEventListener("click", function(event) {
+        console.log(event);
+        const accordion = document.querySelector("#accordion-1");
+        MinimalAccordion.close(accordion);
+      });
+    });
+    document.querySelectorAll(".js-toggle-accordion-trigger").forEach(function (element) {
+      element.addEventListener("click", function(event) {
+        console.log(event);
+        const accordion = document.querySelector("#accordion-1");
+        MinimalAccordion.toggle(accordion);
+      });
+    });
+  </script>
+</body>
+</html>
