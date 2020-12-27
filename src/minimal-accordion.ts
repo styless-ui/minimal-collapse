@@ -127,7 +127,7 @@ export class MinimalAccordion implements IMinimalAccordion {
         // aria-expanded
         for (const node of nodeList) {
           // not await
-          this._close(node);
+          this._toggle(node);
         }
       }
     });
@@ -151,7 +151,7 @@ export class MinimalAccordion implements IMinimalAccordion {
    * Open Accordion
    */
   private async _open(node: HTMLElement): Promise<void> {
-    if (node.getAttribute("area-hidden") !== "false") {
+    if (node.getAttribute("area-hidden") === "false") {
       return;
     }
     // clear listeners
@@ -159,7 +159,7 @@ export class MinimalAccordion implements IMinimalAccordion {
     node.removeEventListener("transitionend", this._closeListener);
 
     // set const height
-    node.style.height = `${window.getComputedStyle(node).height}px`;
+    node.style.height = window.getComputedStyle(node).height;
 
     // set listener
     node.addEventListener("transitionend", this._openListener, {
@@ -176,15 +176,13 @@ export class MinimalAccordion implements IMinimalAccordion {
       contentHeight += childNode.offsetHeight;
     }
     node.style.height = `${contentHeight}px`;
-
-    node.setAttribute("area-hidden", "true");
   }
 
   /**
    * Close Accordion
    */
   private async _close(node: HTMLElement): Promise<void> {
-    if (node.getAttribute("area-hidden") !== "true") {
+    if (node.getAttribute("area-hidden") === "true") {
       return;
     }
     // clear listeners
@@ -192,15 +190,17 @@ export class MinimalAccordion implements IMinimalAccordion {
     node.removeEventListener("transitionend", this._closeListener);
 
     // set const height
-    node.style.height = `${window.getComputedStyle(node).height}px`;
-    node.style.overflowY = "";
+    node.style.height = window.getComputedStyle(node).height;
 
     // set listener
     node.addEventListener("transitionend", this._closeListener, {
       once: true,
     });
 
-    node.setAttribute("area-hidden", "false");
+    node.setAttribute("area-hidden", "true");
+
+    node.offsetHeight
+    node.style.height = "";
   }
 
   /**
@@ -227,8 +227,9 @@ export class MinimalAccordion implements IMinimalAccordion {
       return;
     }
     const target: HTMLElement = event.target;
-    target.style.overflowY = "auto";
-    target.style.height = "auto";
+    target.setAttribute("area-hidden", "false");
+    // target.style.height = "auto";
+    target.style.height = "";
   }
 
   /**
@@ -239,7 +240,7 @@ export class MinimalAccordion implements IMinimalAccordion {
       // Not HTML Element
       return;
     }
-    const target: HTMLElement = event.target;
-    target.style.height = "";
+    // const target: HTMLElement = event.target;
+    // target.style.height = "";
   }
 }
