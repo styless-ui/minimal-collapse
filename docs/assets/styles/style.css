@@ -8,13 +8,13 @@ section {
   padding: 10px;
 }
 
-.accordion {
+.collapse {
   height: 0;
   overflow-y: hidden;
   transition: height .3s;
 }
 
-.accordion[area-hidden="false"] {
+.collapse[area-hidden="false"] {
   height: auto;
   overflow-y: auto;
 }
