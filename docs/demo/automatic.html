@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>minimal-accordion demo (automatic)</title>
+  <title>minimal-collapse demo (automatic)</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css">
   <link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-accordion/dist/minimal-accordion.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse/dist/minimal-collapse.min.js"></script>
 </head>
 <body>
   <section>
-    <button data-open-accordion="#accordion-1" class="button">
+    <button data-open-collapse="#collapse-1" class="button">
       open
     </button>
-    <button data-close-accordion="#accordion-1" class="button">
+    <button data-close-collapse="#collapse-1" class="button">
       close
     </button>
-    <button data-toggle-accordion="#accordion-1" class="button">
+    <button data-toggle-collapse="#collapse-1" class="button">
       toggle
     </button>
-    <div class="accordion" id="accordion-1" area-hidden="true">
-      <div class="accordion__inner">
+    <div class="collapse" id="collapse-1" area-hidden="true">
+      <div class="collapse__inner">
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum rerum.
         </p>
@@ -28,7 +28,7 @@
     </div>
   </section>
   <script type="text/javascript">
-    MinimalAccordion.activate();
+    MinimalCollapse.activate();
   </script>
 </body>
 </html>

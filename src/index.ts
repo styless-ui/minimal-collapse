@@ -1,3 +1,3 @@
-import { MinimalAccordion } from "./minimal-collapse";
+import { MinimalCollapse } from "./minimal-collapse";
 
-export default MinimalAccordion;
+export default MinimalCollapse;

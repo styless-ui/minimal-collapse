@@ -227,7 +227,6 @@ export class MinimalCollapse implements IMinimalCollapse {
     }
     const target: HTMLElement = event.target;
     target.setAttribute("area-hidden", "false");
-    // target.style.height = "auto";
     target.style.height = "";
   }
 
@@ -239,7 +238,5 @@ export class MinimalCollapse implements IMinimalCollapse {
       // Not HTML Element
       return;
     }
-    // const target: HTMLElement = event.target;
-    // target.style.height = "";
   }
 }
