@@ -6,17 +6,16 @@
   <title>minimal-collapse demo (automatic)</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css">
   <link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse/dist/minimal-collapse.min.js"></script>
 </head>
 <body>
   <section>
-    <button data-open-collapse="#collapse-1" class="button">
+    <button class="button" aria-controls="collapse-1" data-open-collapse>
       open
     </button>
-    <button data-close-collapse="#collapse-1" class="button">
+    <button class="button" aria-controls="collapse-1" data-close-collapse>
       close
     </button>
-    <button data-toggle-collapse="#collapse-1" class="button">
+    <button class="button" aria-controls="collapse-1" data-toggle-collapse>
       toggle
     </button>
     <div class="collapse" id="collapse-1" area-hidden="true">
@@ -27,6 +26,8 @@
       </div>
     </div>
   </section>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse/dist/minimal-collapse.min.js"></script>
+  <script type="text/javascript" src="/minimal-collapse.js"></script>
   <script type="text/javascript">
     MinimalCollapse.activate();
   </script>

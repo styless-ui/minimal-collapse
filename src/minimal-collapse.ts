@@ -60,8 +60,8 @@ export class MinimalCollapse implements IMinimalCollapse {
   //  Non-Static
   // ===================
 
-  /** is Active */
-  private _isActive = false;
+  // /** is Active */
+  // private _isActive: boolean = false;
 
   /** Dataset Key Set */
   private datasetKeySet: {
@@ -77,74 +77,67 @@ export class MinimalCollapse implements IMinimalCollapse {
   /**
    * Init Instance
    */
-  private constructor() {
-    window.addEventListener<"click">("click", (event: Event): void => {
-      if (!this._isActive) {
-        return;
-      }
-
-      if (!(event.target instanceof HTMLElement)) {
-        // Not HTML Element
-        return;
-      }
-
-      const target: HTMLElement = event.target;
-
-      const getElementList = (selector: string | undefined): HTMLElement[] => {
-        if (!selector) {
-          return [];
-        }
-        return Array.from(document.querySelectorAll(selector));
-      };
-
-      if (this.datasetKeySet.openTrigger in target.dataset) {
-        // on Click Open Collapse trigger
-        const elementList: HTMLElement[] = getElementList(target.dataset[this.datasetKeySet.openTrigger]);
-        // TODO:
-        // aria-expanded
-        for (const element of elementList) {
-          // not await
-          this._open(element);
-        }
-      }
-
-      if (this.datasetKeySet.closeTrigger in target.dataset) {
-        // on Click Close Collapse trigger
-        const elementList: HTMLElement[] = getElementList(target.dataset[this.datasetKeySet.closeTrigger]);
-        // TODO:
-        // aria-expanded
-        for (const element of elementList) {
-          // not await
-          this._close(element);
-        }
-      }
-
-      if (this.datasetKeySet.toggleTrigger in target.dataset) {
-        // on Click Toggle Collapse trigger
-        const elementList: HTMLElement[] = getElementList(target.dataset[this.datasetKeySet.toggleTrigger]);
-        // TODO:
-        // aria-expanded
-        for (const element of elementList) {
-          // not await
-          this._toggle(element);
-        }
-      }
-    });
-  }
+  private constructor() {}
 
   /**
    * Active Minimal Collapse
    */
   private _activate(): void {
-    this._isActive = true;
+    // this._isActive = true;
+    window.addEventListener<"click">("click", this._clickListener);
   }
 
   /**
    * Deactive Minimal Collapse
    */
   private _deactivate(): void {
-    this._isActive = false;
+    window.removeEventListener("click", this._clickListener);
+    // this._isActive = false;
   }
+
+  /**
+   * click listener
+   */
+  private _clickListener = (event: Event): void => {
+    // if (!this._isActive) {
+    //   return;
+    // }
+
+    if (!(event.target instanceof HTMLElement)) {
+      // Not HTML Element
+      return;
+    }
+
+    const target: HTMLElement = event.target;
+
+    const targetId: string | null = target.getAttribute("aria-controls");
+    if (!targetId) {
+      return;
+    }
+
+    const element: HTMLElement | null = document.getElementById(targetId);
+    if (!element) {
+      return;
+    }
+
+    if (this.datasetKeySet.openTrigger in target.dataset) {
+      // on Click Open Collapse trigger
+      // not await
+      this._open(element);
+    }
+
+    if (this.datasetKeySet.closeTrigger in target.dataset) {
+      // on Click Close Collapse trigger
+      // not await
+      this._close(element);
+    }
+
+    if (this.datasetKeySet.toggleTrigger in target.dataset) {
+      // on Click Toggle Collapse trigger
+      // not await
+      this._toggle(element);
+    }
+  };
 
   /**
    * Open Collapse
@@ -220,7 +213,7 @@ export class MinimalCollapse implements IMinimalCollapse {
   /**
    * Open Event Listener
    */
-  private _openListener(event: Event): void {
+  private _openListener = (event: Event): void => {
     if (!(event.target instanceof HTMLElement)) {
       // Not HTML Element
       return;
@@ -228,15 +221,15 @@ export class MinimalCollapse implements IMinimalCollapse {
     const target: HTMLElement = event.target;
     target.setAttribute("area-hidden", "false");
     target.style.height = "";
-  }
+  };
 
   /**
    * Close Event Listener
    */
-  private _closeListener(event: Event): void {
+  private _closeListener = (event: Event): void => {
     if (!(event.target instanceof HTMLElement)) {
       // Not HTML Element
       return;
     }
-  }
+  };
 }
