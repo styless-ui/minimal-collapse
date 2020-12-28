@@ -31,7 +31,7 @@ The aim of this library is to easily introduce a minimalistic collapse. It is a 
 ## Features
 ✔ Toggles aria-hidden attributes
 
-✔ Open & Close with transition
+✔ Open & Close with CSS Transition
 
 ✔ Make By Typescript
 
@@ -46,7 +46,7 @@ npm install @ohnaka0410/minimal-collapse --save
 
 ```javascript
 // Common.JS
-const MinimalAccordion = require('@ohnaka0410/minimal-collapse');
+const MinimalCollapse = require('@ohnaka0410/minimal-collapse');
 
 // ESModules
 import { MinimalCollapse } from '@ohnaka0410/minimal-collapse';
@@ -54,12 +54,12 @@ import { MinimalCollapse } from '@ohnaka0410/minimal-collapse';
 
 ### via CDN direct link
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.0/dist/minimal-collapse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/minimal-collapse.min.js"></script>
 ```
 
 ### direct download
 ```shell
-curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-modal@v1.0.0/dist/minimal-collapse.min.js
+curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/minimal-collapse.min.js
 ```
 
 ```html
@@ -84,7 +84,7 @@ curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-modal@v1.0.0/dist/minim
 .collapse {
   height: 0;
   overflow-y: hidden;
-  transition: height .3s;
+  transition: height .3s; /** custom height transition */
   /** must be padding 0 */
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@ohnaka0410/minimal-collapse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimal and Tiny Javascript Library for Collapse",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -16,7 +16,7 @@
   "keywords": [
     "front-end",
     "collapse",
-    "collapse",
+    "accordion",
     "vanillajs",
     "typescript"
   ],
