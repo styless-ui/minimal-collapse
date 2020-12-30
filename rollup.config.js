@@ -1,13 +1,13 @@
-import pluginResolve from "@rollup/plugin-node-resolve";
-import pluginTypescript from "@rollup/plugin-typescript";
+import pluginNodeResolve from "@rollup/plugin-node-resolve";
 import pluginCommonjs from "@rollup/plugin-commonjs";
-import { default as pluginBabel } from "@rollup/plugin-babel";
+import pluginTypescript from "@rollup/plugin-typescript";
+import { babel as pluginBabel } from "@rollup/plugin-babel";
 import { terser as pluginTerser } from "rollup-plugin-terser";
+
+import * as path from "path";
 
 import camelCase from "lodash.camelcase";
 import upperFirst from "lodash.upperfirst";
-
-import typescript from "typescript";
 
 import pkg from "./package.json";
 
@@ -39,21 +39,23 @@ export default [
         plugins: [pluginTerser()],
       },
     ],
-    external: [...Object.keys(pkg.devDependencies || {})],
     plugins: [
-      pluginResolve(),
-      pluginTypescript({
-        typescript: typescript,
+      pluginTypescript(),
+      pluginCommonjs({
+        extensions: [".js", ".ts"],
       }),
-      pluginCommonjs(),
       pluginBabel({
         babelHelpers: "bundled",
+        configFile: path.resolve(__dirname, ".babelrc.js"),
+      }),
+      pluginNodeResolve({
+        browser: true,
       }),
     ],
   },
   // For NPM
   {
-    input: "src/minimal-collapse.ts",
+    input: `src/${pkg.name.replace(/^\@.*\//, "")}.ts`,
     output: [
       {
         file: pkg.module,
@@ -65,10 +67,11 @@ export default [
     ],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.devDependencies || {})],
     plugins: [
-      pluginTypescript({
-        typescript: typescript,
+      pluginTypescript(),
+      pluginBabel({
+        babelHelpers: "bundled",
+        configFile: path.resolve(__dirname, ".babelrc.js"),
       }),
-      pluginCommonjs(),
     ],
   },
   // For NPM
@@ -85,10 +88,11 @@ export default [
     ],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.devDependencies || {})],
     plugins: [
-      pluginTypescript({
-        typescript: typescript,
+      pluginTypescript(),
+      pluginBabel({
+        babelHelpers: "bundled",
+        configFile: path.resolve(__dirname, ".babelrc.js"),
       }),
-      pluginCommonjs(),
     ],
   },
 ];
