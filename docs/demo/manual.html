@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>minimal-collapse demo (manual))</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css">
-  <link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
-</head>
-<body>
-  <section>
-    <button class="button js-open-collapse-trigger">
-      open
-    </button>
-    <button class="button js-close-collapse-trigger">
-      close
-    </button>
-    <button class="button js-toggle-collapse-trigger">
-      toggle
-    </button>
-    <div class="collapse" id="collapse-1" area-hidden="true">
-      <div class="collapse__inner">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum rerum.
-        </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>minimal-collapse demo (manual))</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/styles/style.css" />
+  </head>
+  <body>
+    <section>
+      <button class="button js-open-collapse-trigger">open</button>
+      <button class="button js-close-collapse-trigger">close</button>
+      <button class="button js-toggle-collapse-trigger">toggle</button>
+      <div class="collapse" id="collapse-1" area-hidden="true">
+        <div class="collapse__inner">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus
+            architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum
+            rerum.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/minimal-collapse.min.js"></script>
-  <script type="text/javascript">
-    document.querySelectorAll(".js-open-collapse-trigger").forEach(function (element) {
-      element.addEventListener("click", function(event) {
-        console.log(event);
-        const collapse = document.querySelector("#collapse-1");
-        MinimalCollapse.open(collapse);
+    </section>
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.1.0/dist/minimal-collapse.min.js"></script>
+    <!-- <script type="text/javascript" src="/minimal-collapse.js"></script> -->
+    <script type="text/javascript">
+      Array.prototype.forEach.call(document.querySelectorAll(".js-open-collapse-trigger"), function (element) {
+        element.addEventListener("click", function (event) {
+          console.log(event);
+          const collapse = document.querySelector("#collapse-1");
+          MinimalCollapse.open(collapse);
+        });
       });
-    });
 
-    document.querySelectorAll(".js-close-collapse-trigger").forEach(function (element) {
-      element.addEventListener("click", function(event) {
-        console.log(event);
-        const collapse = document.querySelector("#collapse-1");
-        MinimalCollapse.close(collapse);
+      Array.prototype.forEach.call(document.querySelectorAll(".js-close-collapse-trigger"), function (element) {
+        element.addEventListener("click", function (event) {
+          console.log(event);
+          const collapse = document.querySelector("#collapse-1");
+          MinimalCollapse.close(collapse);
+        });
       });
-    });
-    document.querySelectorAll(".js-toggle-collapse-trigger").forEach(function (element) {
-      element.addEventListener("click", function(event) {
-        console.log(event);
-        const collapse = document.querySelector("#collapse-1");
-        MinimalCollapse.toggle(collapse);
+      Array.prototype.forEach.call(document.querySelectorAll(".js-toggle-collapse-trigger"), function (element) {
+        element.addEventListener("click", function (event) {
+          console.log(event);
+          const collapse = document.querySelector("#collapse-1");
+          MinimalCollapse.toggle(collapse);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

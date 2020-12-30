@@ -74,6 +74,9 @@ export class MinimalCollapse implements IMinimalCollapse {
     toggleTrigger: "toggleCollapse",
   };
 
+  /** Active Listener Set */
+  private activeListenerSet: Set<"open" | "close"> = new Set();
+
   /**
    * Init Instance
    */
@@ -147,16 +150,20 @@ export class MinimalCollapse implements IMinimalCollapse {
       return;
     }
     // clear listeners
-    element.removeEventListener("transitionend", this._openListener);
-    element.removeEventListener("transitionend", this._closeListener);
+    // element.removeEventListener("transitionend", this._openListener);
+    // element.removeEventListener("transitionend", this._closeListener);
+    this.activeListenerSet.clear();
+    element.addEventListener("transitionend", this._openListener);
+    element.addEventListener("transitionend", this._closeListener);
 
     // set const height
     element.style.height = window.getComputedStyle(element).height;
 
-    // set listener
-    element.addEventListener("transitionend", this._openListener, {
-      once: true,
-    });
+    // // set listener
+    // element.addEventListener("transitionend", this._openListener, {
+    //   // once: false,
+    // });
+    this.activeListenerSet.add("open");
 
     // set target hight
     let contentHeight: number = 0;
@@ -178,16 +185,20 @@ export class MinimalCollapse implements IMinimalCollapse {
       return;
     }
     // clear listeners
-    element.removeEventListener("transitionend", this._openListener);
-    element.removeEventListener("transitionend", this._closeListener);
+    // element.removeEventListener("transitionend", this._openListener);
+    // element.removeEventListener("transitionend", this._closeListener);
+    this.activeListenerSet.clear();
+    element.addEventListener("transitionend", this._openListener);
+    element.addEventListener("transitionend", this._closeListener);
 
     // set const height
     element.style.height = window.getComputedStyle(element).height;
 
-    // set listener
-    element.addEventListener("transitionend", this._closeListener, {
-      once: true,
-    });
+    // // set listener
+    // element.addEventListener("transitionend", this._closeListener, {
+    //   // once: false,
+    // });
+    this.activeListenerSet.add("close");
 
     element.setAttribute("area-hidden", "true");
 
@@ -214,6 +225,10 @@ export class MinimalCollapse implements IMinimalCollapse {
    * Open Event Listener
    */
   private _openListener = (event: Event): void => {
+    if (!this.activeListenerSet.has("open")) {
+      return;
+    }
+    this.activeListenerSet.delete("open");
     if (!(event.target instanceof HTMLElement)) {
       // Not HTML Element
       return;
@@ -221,15 +236,22 @@ export class MinimalCollapse implements IMinimalCollapse {
     const target: HTMLElement = event.target;
     target.setAttribute("area-hidden", "false");
     target.style.height = "";
+    // target.removeEventListener("transitionend", this._openListener);
   };
 
   /**
    * Close Event Listener
    */
   private _closeListener = (event: Event): void => {
+    if (!this.activeListenerSet.has("close")) {
+      return;
+    }
+    this.activeListenerSet.delete("close");
     if (!(event.target instanceof HTMLElement)) {
       // Not HTML Element
       return;
     }
+    // const target: HTMLElement = event.target;
+    // target.removeEventListener("transitionend", this._closeListener);
   };
 }

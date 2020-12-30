@@ -35,6 +35,8 @@ The aim of this library is to easily introduce a minimalistic collapse. It is a 
 
 ✔ Make By Typescript
 
+✔ Supported for IE11+ (with Polyfill)
+
 &nbsp;
 
 ## Install
@@ -54,15 +56,17 @@ import { MinimalCollapse } from '@ohnaka0410/minimal-collapse';
 
 ### via CDN direct link
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/minimal-collapse.min.js"></script>
+<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.1.0/dist/minimal-collapse.min.js"></script>
 ```
 
 ### direct download
 ```shell
-curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/minimal-collapse.min.js
+curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.1.0/dist/minimal-collapse.min.js
 ```
 
 ```html
+<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
 <script src="/path/to/minimal-collapse.min.js"></script>
 ```
 
@@ -90,7 +94,7 @@ curl -o https://cdn.jsdelivr.net/npm/@ohnaka0410/minimal-collapse@v1.0.1/dist/mi
 
 .collapse[area-hidden="false"] {
   height: auto;
-  overflow-y: auto;
+  overflow-y: visible;
   /** must be margin 0 */
 }
 ```

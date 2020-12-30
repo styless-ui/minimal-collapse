@@ -16,5 +16,5 @@ section {
 
 .collapse[area-hidden="false"] {
   height: auto;
-  overflow-y: auto;
+  overflow-y: visible;
 }
