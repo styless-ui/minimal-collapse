@@ -11,7 +11,7 @@
 
   <img src="https://img.shields.io/bundlephobia/min/@yuki0410/minimal-collapse" alt="minified size">
 
-  <img src="https://img.shields.io/david/yuki0410/minimal-collapse" alt="dependencies">
+  <img src="https://img.shields.io/david/ohnaka0410/minimal-collapse" alt="dependencies">
 
   <a href="https://www.npmjs.com/package/@yuki0410/minimal-collapse">
     <img src="https://img.shields.io/npm/dt/@yuki0410/minimal-collapse" alt="downloads">
@@ -51,18 +51,18 @@ npm install @yuki0410/minimal-collapse --save
 const MinimalCollapse = require('@yuki0410/minimal-collapse');
 
 // ESModules
-import { MinimalCollapse } from '@yuki0410/minimal-collapse';
+import MinimalCollapse from '@yuki0410/minimal-collapse';
 ```
 
 ### via CDN direct link
 ```html
 <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
-<script src="https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse@v1.1.0/dist/minimal-collapse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse/dist/minimal-collapse.min.js"></script>
 ```
 
 ### direct download
 ```shell
-curl -o https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse@v1.1.0/dist/minimal-collapse.min.js
+curl -o https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse/dist/minimal-collapse.min.js
 ```
 
 ```html
