@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>minimal-collapse demo (automatic)</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css">
-  <link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
-</head>
-<body>
-  <section>
-    <button class="button" aria-controls="collapse-1" data-open-collapse>
-      open
-    </button>
-    <button class="button" aria-controls="collapse-1" data-close-collapse>
-      close
-    </button>
-    <button class="button" aria-controls="collapse-1" data-toggle-collapse>
-      toggle
-    </button>
-    <div class="collapse" id="collapse-1" area-hidden="true">
-      <div class="collapse__inner">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum rerum.
-        </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>minimal-collapse demo (automatic)</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/destyle.css@2.0.2/destyle.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/styles/style.css" />
+  </head>
+  <body>
+    <section>
+      <button class="button" aria-controls="collapse-1" data-open-collapse>open</button>
+      <button class="button" aria-controls="collapse-1" data-close-collapse>close</button>
+      <button class="button" aria-controls="collapse-1" data-toggle-collapse>toggle</button>
+      <div class="collapse" id="collapse-1" area-hidden="true">
+        <div class="collapse__inner">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, illum voluptatibus! Fugiat ducimus
+            architecto quam quae deserunt? Veritatis dolorum, velit autem fugit in enim, iste quidem et doloremque, eum
+            rerum.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse@v1.1.1/dist/minimal-collapse.min.js"></script>
-  <!-- <script type="text/javascript" src="/minimal-collapse.js"></script> -->
-  <script type="text/javascript">
-    MinimalCollapse.activate();
-  </script>
-</body>
+    </section>
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@yuki0410/minimal-collapse/dist/minimal-collapse.min.js"
+    ></script>
+    <!-- <script type="text/javascript" src="/minimal-collapse.js"></script> -->
+    <script type="text/javascript">
+      MinimalCollapse.activate();
+    </script>
+  </body>
 </html>
